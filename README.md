@@ -6,7 +6,7 @@
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Overview
-BharatVaani is a multilingual AI assistant designed to provide instant answers to user queries in multiple Indian languages. It leverages the power of Google Gemini AI and FastAPI for backend services, combined with a React frontend for a seamless user experience.
+BharatVaani AI Assistant is a multilingual AI assistant designed to provide instant answers to user queries in multiple Indian languages. It leverages the power of Google Gemini AI and FastAPI for backend services, combined with a React frontend for a seamless user experience.
 
 ## Features
 - **Multilingual Support**: Supports 22 Indian languages.
@@ -22,7 +22,7 @@ BharatVaani is a multilingual AI assistant designed to provide instant answers t
 
 ## Project Structure
 
-BharatVaani/
+BharatVaani AI Assistant/
 ├── backend/
 │   ├── .env
 │   ├── requirements.txt
