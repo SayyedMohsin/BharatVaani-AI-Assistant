@@ -1,13 +1,3 @@
-#### 📁 4️⃣ Add Icons and Badges
-Add these icons and badges to the top of your `README.md`:
-
-```markdown
-# BharatVaani AI Assistant
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
-![Google Gemini](https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 # BharatVaani AI Assistant
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
@@ -64,26 +54,36 @@ BharatVaani/
    python -m venv venv
    venv\Scripts\activate
    pip install -r backend/requirements.txt
+   
+### Set Environment Variables:
+Create a .env file in the backend directory and add your Google Gemini API Key:
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+
+### Run the Backend:
+uvicorn main:app --reload --port 8000
 
 ### Frontend Setup
-   **Install Node.js and Dependencies:
-     bash
-     cd frontend
-     npm install
-###Run the Frontend:
-    bash
-    npm run dev
+Install Node.js and Dependencies:
+bash
+cd frontend
+npm install
 
-Accessing the Application
-Backend: http://localhost:8000/docs
-Frontend: http://localhost:5173
+### Run the Frontend:
+bash
+npm run dev
 
-Usage
-Home Page: Ask questions in multiple languages and get instant AI responses.
-Services Page: Explore different categories like UPI, Government Schemes, Weather, etc.
-Settings Page: Customize your profile, language preferences, and enable/disable voice commands.
+### Accessing the Application
+### Backend: http://localhost:8000/docs
+### Frontend: http://localhost:5173
 
-Contact
-For any queries or support, contact smohsin32@yahoo.in
+### Usage
+**Home Page** : Ask questions in multiple languages and get instant AI responses.
 
-This project is maintained by Sayyed Mohsin Ali.
+**Services Page**: Explore different categories like UPI, Government Schemes, Weather, etc.
+
+**Settings Page**: Customize your profile, language preferences, and enable/disable voice commands.
+
+### Contact
+For any queries or support, contact **smohsin32@yahoo.in**
+
+This project is maintained by **Sayyed Mohsin Ali**
