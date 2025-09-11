@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --orange: #f97316;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --purple: #8b5cf6;
+  }
+  .hindi-font {
+    font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  }
+}
