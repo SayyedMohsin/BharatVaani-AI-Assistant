@@ -4,15 +4,14 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
+# 🔐 Gemini
 load_dotenv()
 api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-# -------------------- PAGE CONFIG --------------------
+# 🎨 Page Config (same attractive UI)
 st.set_page_config(page_title="BharatVaani AI", layout="wide", initial_sidebar_state="collapsed")
-
-# -------------------- CSS INJECTION --------------------
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap');
@@ -25,27 +24,19 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------- HEADER --------------------
-with st.container():
-    col1, col2, col3 = st.columns([1, 8, 1])
-    with col2:
-        st.markdown("<h1 style='text-align: center; color: white;'>🇮🇳 BharatVaani AI</h1>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: white;'>२२ भारतीय भाषाओं में तुरंत जवाब</p>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white;'>🇮🇳 BharatVaani AI</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: white;'>२२ भारतीय भाषाओं में तुरंत जवाब</p>", unsafe_allow_html=True)
 
 # -------------------- SIDEBAR --------------------
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/3612/3612134.png", width=120)
     st.markdown("### ⚙️ Settings")
     languages = {
-        "hi": "हिन्दी", "bn": "বাংলা", "te": "తెలుగు", "ta": "தமிழ்",
+        "hi": "हिन्दी", "bn": "বাংলা", "te": "తెలుగు", "ta": "தமிழ்", "en": "English",
         "mr": "मराठी", "ur": "اردو", "gu": "ગુજરાતી", "kn": "ಕನ್ನಡ",
-        "ml": "മലയാളം", "or": "ଓଡ଼ିଆ", "pa": "ਪੰਜਾਬੀ", "as": "অসমীয়া",
-        "sa": "संस्कृत", "bh": "भोजपुरी", "kok": "कोंकणी", "mai": "मैथिली"
+        "ml": "മലയാളം", "or": "ଓଡ଼ିଆ", "pa": "ਪੰਜਾਬੀ", "as": "অসমীয়া"
     }
     lang = st.selectbox("🌍 भाषा / Language", list(languages.keys()), format_func=lambda x: f"{x.upper()} - {languages[x]}")
-
-    st.markdown("---")
-    st.markdown("### 📞 Contact")
-    st.markdown("[smohsin32@yahoo.in](mailto:smohsin32@yahoo.in)")
 
 # -------------------- MAIN AREA --------------------
 with st.container():
@@ -60,7 +51,11 @@ with st.container():
             prompt = f"भारतीय संदर्भ में {languages[lang]} में छोटा जवाब दो: {query}"
             try:
                 response = model.generate_content(prompt)
-                st.success(response.text.strip())
+                answer = response.text.strip()
+                if answer:
+                    st.success(answer)
+                else:
+                    st.info("AI ने खाली जवाब दिया, फिर से कोशिश करें।")
             except Exception as e:
                 st.error(f"AI Error: {e}")
     elif ask:
